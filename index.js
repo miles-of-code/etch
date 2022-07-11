@@ -28,16 +28,33 @@ settings.appendChild(setSize);
 settings.appendChild(setColor);
 settings.appendChild(colorButton);
 
+gridItem.style.width='31.25px';
+gridItem.style.height='31.25px';
+gridContainer.style.gridTemplateColumns="repeat(16, 1fr)";
 for (i = 0; i < 256; i++) {
-    gridContainer.appendChild(gridItem.cloneNode(true))   
+  gridContainer.appendChild(gridItem.cloneNode(true))   
 }
 
 gridContainer.addEventListener('mouseover', getColor);
 function getColor(event) {
-    event.target.style.background="pink";
+  event.target.style.background="pink";
 }
 
-sizeButton.addEventListener('click', getSize)
-function getSize() {
-let sizeChoice = (document.getElementById("setSize").value);
-}
+
+sizeButton.addEventListener('click', getSize) 
+
+ function getSize() {
+   gridContainer.innerHTML='';
+   let sizeChoice = (document.getElementById("setSize").value);
+   gridItem.style.width=`${Math.sqrt(250000/(sizeChoice**2))}px`;
+   gridItem.style.height=`${Math.sqrt(250000/(sizeChoice**2))}px`;
+   gridContainer.style.gridTemplateColumns=`repeat(${sizeChoice}, 1fr)`;
+   for (i = 0; i < sizeChoice*sizeChoice; i++) {
+    gridContainer.appendChild(gridItem.cloneNode(true))  
+   }
+ }
+
+//  width: 31.25px;
+//  height: 31.25px;
+
+//  grid-template-columns: repeat(16, 1fr);
