@@ -7,20 +7,33 @@
 </head>
 <body>
 
+<p id="settingsName">ETCH-A-SKETCHY</p>
 <div id="main">
     <div id="slideContainer">
-        <label for="sizeLabel">grid size: <span id="sizeLabel"></span></label>
-        <input id="slideSize"; type="range"; min="1"; max="100"; value="16">
+        <div id="colorLabels">
+            <label for="redLabel" id="labelText">pen color (R): <span id="redLabel"></span></label>
+            <input id="slideRedColor"; type="range"; min="1"; max="255"; value="0">
+            <label for="greenLabel" id="labelText">pen color (G): <span id="greenLabel"></span></label>
+            <input id="slideGreenColor"; type="range"; min="1"; max="255"; value="0">
+            <label for="blueLabel" id="labelText">pen color (B): <span id="blueLabel"></span></label>
+            <input id="slideBlueColor"; type="range"; min="1"; max="255"; value="0">
+        </div>
+        <div id="sizeLabels">
+            <label for="sizeLabel" id="labelText">grid size: <span id="sizeLabel"></span></label>
+            <input id="slideSize"; type="range"; min="1"; max="100"; value="16">
+        </div>
+        <div id="backgroundColorLabels">
+            <label for="backgroundRedLabel" id="labelText"> background color (R): <span id="backgroundRedLabel"></span></label>
+            <input id="slideBackgroundRedColor"; type="range"; min="1"; max="255"; value="0">
+            <label for="backgroundGreenLabel" id="labelText">background color (G): <span id="backgroundGreenLabel"></span></label>
+            <input id="slideBackgroundGreenColor"; type="range"; min="1"; max="255"; value="0">
+            <label for="backgroundBlueLabel" id="labelText">background color (B): <span id="backgroundBlueLabel"></span></label>
+            <input id="slideBackgroundBlueColor"; type="range"; min="1"; max="255"; value="0">
+        </div>
     </div>
 </div>
 
-
 <script src="index.js"></script>
+
 </body>
-
-
-
-
-
-
 </html>
