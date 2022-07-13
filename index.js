@@ -84,98 +84,67 @@ gridContainer.addEventListener('mouseover', getDefaultColor);
   event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
  }
 
+generateColor()
+// random color generator
+function generateColor(square) {
+  let redRandom = Math.floor(Math.random()*255);
+  let greenRandom = Math.floor(Math.random()*255);
+  let blueRandom = Math.floor(Math.random()*255);
+  let randomColor = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`
+  return randomColor;
+}
 
- // at startup, spell 
-
+// at startup, spell ETCH
 const square1 = document.getElementById('square1')
 async function greetSquares() {
   async function paint(square) {
-    square.style.background="darkseagreen";
-   }
-   // E
-   paint(square81);
-   await sleep(80)
-   paint(square80);
-   await sleep(80)
-   paint(square79);
-   await sleep(80)
-   paint(square95);
-   await sleep(80)
-   paint(square111);
-   await sleep(80)
-   paint(square127);
-   await sleep(80)
-   paint(square143);
-   await sleep(80)
-   paint(square144);
-   await sleep(80)
-   paint(square145);
-   await sleep(80)
-   paint(square112);
-   await sleep(80)
-   paint(square113);
-   await sleep(80)
-   // T
-   paint(square83);
-   await sleep(80)
-   paint(square84);
-   await sleep(80)
-   paint(square85);
-   await sleep(80)
-   paint(square100);
-   await sleep(80)
-   paint(square116);
-   await sleep(80)
-   paint(square132);
-   await sleep(80)
-   paint(square148);
-   // C
-   await sleep(80)
-   paint(square89);
-   await sleep(80)
-   paint(square88);
-   await sleep(80)
-   paint(square87);
-   await sleep(80)
-   paint(square103);
-   await sleep(80)
-   paint(square119);
-   await sleep(80)
-   paint(square135);
-   await sleep(80)
-   paint(square151);
-   await sleep(80)
-   paint(square152);
-   await sleep(80)
-   paint(square153);
-   // H
-   await sleep(80)
-   paint(square91);
-   await sleep(80)
-   paint(square107);
-   await sleep(80)
-   paint(square123);
-   await sleep(80)
-   paint(square139);
-   await sleep(80)
-   paint(square155);
-   await sleep(80)
-   paint(square124);
-   await sleep(80)
-   paint(square125);
-   await sleep(80)
-   paint(square93);
-   await sleep(80)
-   paint(square109);
-   await sleep(80)
-   paint(square135);
-   await sleep(80)
-   paint(square151);
-   await sleep(80)
-   paint(square141);
-   await sleep(80)
-   paint(square157);
-
+    square.style.background = generateColor(square);
+  }
+   
+  // E
+  paint(square81); await sleep(80);
+  paint(square80); await sleep(80);
+  paint(square79); await sleep(80);
+  paint(square95); await sleep(80);
+  paint(square111); await sleep(80);
+  paint(square127); await sleep(80);
+  paint(square143); await sleep(80);
+  paint(square144); await sleep(80);
+  paint(square145); await sleep(80);
+  paint(square112); await sleep(80);
+  paint(square113); await sleep(80);
+  // T
+  paint(square83); await sleep(80);
+  paint(square84); await sleep(80);
+  paint(square85); await sleep(80);
+  paint(square100); await sleep(80);
+  paint(square116); await sleep(80);
+  paint(square132); await sleep(80);
+  paint(square148); await sleep(80);
+  // C
+  paint(square89); await sleep(80);
+  paint(square88); await sleep(80);
+  paint(square87); await sleep(80);
+  paint(square103); await sleep(80);
+  paint(square119); await sleep(80);
+  paint(square135); await sleep(80);
+  paint(square151); await sleep(80);
+  paint(square152); await sleep(80);
+  paint(square153); await sleep(80);
+  // H
+  paint(square91); await sleep(80);
+  paint(square107); await sleep(80);
+  paint(square123); await sleep(80);
+  paint(square139); await sleep(80);
+  paint(square155); await sleep(80);
+  paint(square124); await sleep(80);
+  paint(square125); await sleep(80);
+  paint(square93); await sleep(80);
+  paint(square109); await sleep(80);
+  paint(square141); await sleep(80);
+  paint(square157); await sleep(80);
+  gridContainer.style.background = "black";
 
 }
-greetSquares()
+
+greetSquares();
