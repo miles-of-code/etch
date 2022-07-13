@@ -9,6 +9,12 @@ settings.setAttribute('id', 'settings')
 const slideContainer = document.getElementById("slideContainer")
 const sizeOutput = document.getElementById("sizeLabel")
 sizeOutput.innerHTML = slideSize.value; // set grid to default size
+const redBackgroundLabel = document.getElementById("backgroundRedLabel")
+redBackgroundLabel.innerHTML = slideBackgroundRedColor.value;
+const greenBackgroundLabel = document.getElementById("backgroundGreenLabel")
+greenBackgroundLabel.innerHTML = slideBackgroundGreenColor.value;
+const blueBackgroundLabel = document.getElementById("backgroundBlueLabel")
+blueBackgroundLabel.innerHTML = slideBackgroundBlueColor.value;
 main.appendChild(settings);
 main.appendChild(gridContainer);
 settings.appendChild(slideContainer)
@@ -39,18 +45,24 @@ slideBackgroundRedColor.oninput = function() {
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
+  let redBackgroundChoice = this.value;
+  redBackgroundLabel.innerHTML = redBackgroundChoice;
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 slideBackgroundGreenColor.oninput = function() {
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
+  let greenBackgroundChoice = this.value;
+  greenBackgroundLabel.innerHTML = greenBackgroundChoice;
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 slideBackgroundBlueColor.oninput = function() {
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
+  let blueBackgroundChoice = this.value;
+  blueBackgroundLabel.innerHTML = blueBackgroundChoice;
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 
