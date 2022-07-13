@@ -1,5 +1,3 @@
-// to do: make default grid size 15x15
-
 // allows square delay
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -15,7 +13,7 @@ const settings = document.createElement('div');
 settings.setAttribute('id', 'settings')
 const slideContainer = document.getElementById("slideContainer")
 const sizeOutput = document.getElementById("sizeLabel")
-sizeOutput.innerHTML = slideSize.value; // set grid to default size
+sizeOutput.innerHTML = `${slideSize.value}x${slideSize.value}`; // set grid to default size
 const redBackgroundLabel = document.getElementById("backgroundRedLabel")
 redBackgroundLabel.innerHTML = slideBackgroundRedColor.value;
 const greenBackgroundLabel = document.getElementById("backgroundGreenLabel")
@@ -28,10 +26,10 @@ settings.appendChild(slideContainer)
 
 
 // default grid size
-gridItem.style.width='31.25px'; 
-gridItem.style.height='31.25px';
-gridContainer.style.gridTemplateColumns="repeat(16, 1fr)";
-for (i = 0; i < 256; i++) {
+gridItem.style.width='28px'; 
+gridItem.style.height='28px';
+gridContainer.style.gridTemplateColumns="repeat(15, 1fr)";
+for (i = 0; i < 225; i++) {
   gridContainer.appendChild(gridItem.cloneNode(true))  
   gridItem.id = `square${i}` 
 }
@@ -41,8 +39,8 @@ slideSize.oninput = function() {
   let sizeChoice = this.value;
   sizeOutput.innerHTML = sizeChoice;
   gridContainer.innerHTML='';
-  gridItem.style.width=`${Math.sqrt(250000/(sizeChoice**2))}px`;
-  gridItem.style.height=`${Math.sqrt(250000/(sizeChoice**2))}px`;
+  gridItem.style.width=`${Math.sqrt(176400/(sizeChoice**2))}px`;
+  gridItem.style.height=`${Math.sqrt(176400/(sizeChoice**2))}px`;
   gridContainer.style.gridTemplateColumns=`repeat(${sizeChoice}, 1fr)`;
     for (i = 0; i < sizeChoice*sizeChoice; i++) {
       gridContainer.appendChild(gridItem.cloneNode(true)) 
@@ -51,6 +49,7 @@ slideSize.oninput = function() {
 
 // allows user to set background color (RGB)
 slideBackgroundRedColor.oninput = function() {
+  gridContainer.style.transition="none";
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
@@ -59,6 +58,7 @@ slideBackgroundRedColor.oninput = function() {
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 slideBackgroundGreenColor.oninput = function() {
+  gridContainer.style.transition="none";
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
@@ -67,6 +67,7 @@ slideBackgroundGreenColor.oninput = function() {
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 slideBackgroundBlueColor.oninput = function() {
+  gridContainer.style.transition="none";
   valRedBackground = document.getElementById("slideBackgroundRedColor").value;
   valGreenBackground = document.getElementById("slideBackgroundGreenColor").value;
   valBlueBackground = document.getElementById("slideBackgroundBlueColor").value;
@@ -99,51 +100,54 @@ const square1 = document.getElementById('square1')
 async function greetSquares() {
   async function paint(square) {
     square.style.background = generateColor(square);
+    square.style.transition="3s";
   }
    
   // E
-  paint(square81); await sleep(80);
-  paint(square80); await sleep(80);
+  await sleep(80);
+  paint(square76); await sleep(80);
+  paint(square75); await sleep(80);
+  paint(square74); await sleep(80);
+  paint(square89); await sleep(80);
+  paint(square104); await sleep(80);
+  paint(square119); await sleep(80);
+  paint(square134); await sleep(80);
+  paint(square135); await sleep(80);
+  paint(square136); await sleep(80);
+  paint(square105); await sleep(80);
+  paint(square106); await sleep(80);
+  // T
+  paint(square78); await sleep(80);
   paint(square79); await sleep(80);
-  paint(square95); await sleep(80);
-  paint(square111); await sleep(80);
+  paint(square80); await sleep(80);
+  paint(square94); await sleep(80);
+  paint(square109); await sleep(80);
+  paint(square124); await sleep(80);
+  paint(square139); await sleep(80);
+  // C
+  paint(square84); await sleep(80);
+  paint(square83); await sleep(80);
+  paint(square82); await sleep(80);
+  paint(square97); await sleep(80);
+  paint(square112); await sleep(80);
   paint(square127); await sleep(80);
+  paint(square142); await sleep(80);
   paint(square143); await sleep(80);
   paint(square144); await sleep(80);
-  paint(square145); await sleep(80);
-  paint(square112); await sleep(80);
-  paint(square113); await sleep(80);
-  // T
-  paint(square83); await sleep(80);
-  paint(square84); await sleep(80);
-  paint(square85); await sleep(80);
-  paint(square100); await sleep(80);
-  paint(square116); await sleep(80);
-  paint(square132); await sleep(80);
-  paint(square148); await sleep(80);
-  // C
-  paint(square89); await sleep(80);
-  paint(square88); await sleep(80);
-  paint(square87); await sleep(80);
-  paint(square103); await sleep(80);
-  paint(square119); await sleep(80);
-  paint(square135); await sleep(80);
-  paint(square151); await sleep(80);
-  paint(square152); await sleep(80);
-  paint(square153); await sleep(80);
   // H
-  paint(square91); await sleep(80);
-  paint(square107); await sleep(80);
-  paint(square123); await sleep(80);
-  paint(square139); await sleep(80);
-  paint(square155); await sleep(80);
-  paint(square124); await sleep(80);
-  paint(square125); await sleep(80);
-  paint(square93); await sleep(80);
-  paint(square109); await sleep(80);
-  paint(square141); await sleep(80);
-  paint(square157); await sleep(80);
-  gridContainer.style.background = "black";
+  paint(square86); await sleep(80);
+  paint(square101); await sleep(80);
+  paint(square116); await sleep(80);
+  paint(square131); await sleep(80);
+  paint(square146); await sleep(80);
+  paint(square117); await sleep(80);
+  paint(square88); await sleep(80);
+  paint(square103); await sleep(80);
+  paint(square118); await sleep(80);
+  paint(square133); await sleep(80);
+  paint(square148); await sleep(80);
+  gridContainer.style.transition="3s";
+  gridContainer.style.background="white";
 
 }
 

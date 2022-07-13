@@ -37,13 +37,14 @@ body {
         }
 
     #gridContainer {
-        background: white;
+        background: black;
         display: inline-grid;
         justify-content: center;
         align-items: center;
-        width: 500px;
-        height: 500px;
+        width: 420px;
+        height: 420px;
         flex-shrink: 0;
+        border: 5pt rgb(221 114 114) solid;
         
     }
     
