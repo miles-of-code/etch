@@ -85,6 +85,7 @@ gridContainer.addEventListener('mouseover', getDefaultColor);
   event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
  }
 
+
 // random color generator
 function generateColor(square) {
   let redRandom = Math.floor(Math.random()*255);
