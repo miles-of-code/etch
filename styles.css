@@ -49,7 +49,7 @@ body {
     }
     
         .gridItem {
-            border: 1pt solid black;
+            border: 1pt solid white;
             box-sizing: border-box
         }
 
