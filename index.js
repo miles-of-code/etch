@@ -30,8 +30,8 @@ gridItem.style.width='28px';
 gridItem.style.height='28px';
 gridContainer.style.gridTemplateColumns="repeat(15, 1fr)";
 for (i = 0; i < 225; i++) {
-  gridContainer.appendChild(gridItem.cloneNode(true))  
-  gridItem.id = `square${i}` 
+  gridContainer.appendChild(gridItem.cloneNode(true))   
+  gridItem.id = `square${i}`
 }
 
 // allow user to set grid size
@@ -85,7 +85,6 @@ gridContainer.addEventListener('mouseover', getDefaultColor);
   event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
  }
 
-generateColor()
 // random color generator
 function generateColor(square) {
   let redRandom = Math.floor(Math.random()*255);
@@ -95,12 +94,11 @@ function generateColor(square) {
   return randomColor;
 }
 
-// at startup, spell ETCH
+ // at startup, spell ETCH
 const square1 = document.getElementById('square1')
 async function greetSquares() {
   async function paint(square) {
     square.style.background = generateColor(square);
-    square.style.transition="3s";
   }
    
   // E
@@ -148,7 +146,5 @@ async function greetSquares() {
   paint(square148); await sleep(80);
   gridContainer.style.transition="3s";
   gridContainer.style.background="white";
-
 }
-
 greetSquares();
