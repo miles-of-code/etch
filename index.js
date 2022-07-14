@@ -13,7 +13,7 @@ const settings = document.createElement('div');
 settings.setAttribute('id', 'settings')
 const slideContainer = document.getElementById("slideContainer")
 const sizeOutput = document.getElementById("sizeLabel")
-sizeOutput.innerHTML = `${slideSize.value}x${slideSize.value}`; // set grid to default size
+sizeOutput.innerHTML = slideSize.value; // set grid to default size
 const redBackgroundLabel = document.getElementById("backgroundRedLabel")
 redBackgroundLabel.innerHTML = slideBackgroundRedColor.value;
 const greenBackgroundLabel = document.getElementById("backgroundGreenLabel")
@@ -23,7 +23,6 @@ blueBackgroundLabel.innerHTML = slideBackgroundBlueColor.value;
 main.appendChild(settings);
 main.appendChild(gridContainer);
 settings.appendChild(slideContainer)
-
 
 // default grid size
 gridItem.style.width='28px'; 

@@ -44,10 +44,9 @@ body {
         width: 420px;
         height: 420px;
         flex-shrink: 0;
-        border: 5pt rgb(221 114 114) solid;
+   
         
     }
-    
         .gridItem {
             border: 1pt solid white;
             box-sizing: border-box
