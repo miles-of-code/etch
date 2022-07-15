@@ -90,10 +90,13 @@ rainbowButton.addEventListener('click', changeRainbow);
   function changeRainbow() {
     if (rainbowButton.textContent == 'rainbow mode off') {
     rainbowButton.textContent = 'rainbow mode on'
+    rainbowButton.style.backgroundImage = `linear-gradient(to right, rgb(255, 0, 55), rgb(183, 0, 255), rgb(0, 238, 255),
+    rgb(217, 255, 0), rgb(28, 0, 128))`;
   } else if (rainbowButton.textContent == 'rainbow mode on'){
     rainbowButton.textContent = 'rainbow mode off'
+    rainbowButton.style.backgroundImage = `linear-gradient(to right, black, white)`;
   }
-}
+  }
 
 // allow user to set pen color (RGB) or detect rainbow mode
 gridContainer.addEventListener('mouseover', getDefaultColor); 

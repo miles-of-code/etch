@@ -73,7 +73,9 @@ body {
     margin-left: 33%;
 }
 
-#buttonRainbow:active {
-    border: 3pt solid black;
-    font-weight: bold;
-}
+    #buttonRainbow:active {
+        border: 2pt solid white;
+        font-weight: bold;
+    }
+
+   
