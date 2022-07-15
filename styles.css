@@ -63,3 +63,17 @@ body {
         border-radius: 100px;
       }
 
+#buttonRainbow {
+    height: 50px;
+    width: 90px;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2pt solid black;
+    color: white;
+    text-shadow: 2px 2px black;
+    margin-left: 33%;
+}
+
+#buttonRainbow:active {
+    border: 3pt solid black;
+    font-weight: bold;
+}

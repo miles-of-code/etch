@@ -10,16 +10,18 @@ gridContainer.setAttribute('id', 'gridContainer');
 const gridItem = document.createElement('div'); 
 gridItem.classList.add('gridItem');
 const settings = document.createElement('div'); 
-settings.setAttribute('id', 'settings')
-const slideContainer = document.getElementById("slideContainer")
-const sizeOutput = document.getElementById("sizeLabel")
+settings.setAttribute('id', 'settings');
+const slideContainer = document.getElementById("slideContainer");
+const sizeOutput = document.getElementById("sizeLabel");
 sizeOutput.innerHTML = slideSize.value; // set grid to default size
-const redBackgroundLabel = document.getElementById("backgroundRedLabel")
+const redBackgroundLabel = document.getElementById("backgroundRedLabel");
 redBackgroundLabel.innerHTML = slideBackgroundRedColor.value;
-const greenBackgroundLabel = document.getElementById("backgroundGreenLabel")
+const greenBackgroundLabel = document.getElementById("backgroundGreenLabel");
 greenBackgroundLabel.innerHTML = slideBackgroundGreenColor.value;
-const blueBackgroundLabel = document.getElementById("backgroundBlueLabel")
+const blueBackgroundLabel = document.getElementById("backgroundBlueLabel");
 blueBackgroundLabel.innerHTML = slideBackgroundBlueColor.value;
+const rainbowButton = document.getElementById("buttonRainbow");
+
 main.appendChild(settings);
 main.appendChild(gridContainer);
 settings.appendChild(slideContainer)
@@ -75,15 +77,38 @@ slideBackgroundBlueColor.oninput = function() {
   gridContainer.style.background= `rgb(${valRedBackground}, ${valGreenBackground}, ${valBlueBackground})`
 }
 
-// allow user to set gridItem color (RGB)
+// detect rainbow mode
+let triggerRainbow = function() {
+  if (rainbowButton.textContent == 'rainbow mode off') {
+    return 'off'
+  } else if (rainbowButton.textContent == 'rainbow mode on') {
+    return 'on'}
+}
+
+// toggle rainbow mode
+rainbowButton.addEventListener('click', changeRainbow); 
+  function changeRainbow() {
+    if (rainbowButton.textContent == 'rainbow mode off') {
+    rainbowButton.textContent = 'rainbow mode on'
+  } else if (rainbowButton.textContent == 'rainbow mode on'){
+    rainbowButton.textContent = 'rainbow mode off'
+  }
+}
+
+// allow user to set pen color (RGB) or detect rainbow mode
 gridContainer.addEventListener('mouseover', getDefaultColor); 
   function getDefaultColor(event) {
-  valRed = document.getElementById("slideRedColor").value;
-  valGreen = document.getElementById("slideGreenColor").value;
-  valBlue = document.getElementById("slideBlueColor").value;
-  event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
- }
-
+    let rainbowTrigger = triggerRainbow(); 
+    console.log(rainbowButton.textContent)
+    if (rainbowTrigger == 'off') {
+        valRed = document.getElementById("slideRedColor").value;
+        valGreen = document.getElementById("slideGreenColor").value;
+        valBlue = document.getElementById("slideBlueColor").value;
+        event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
+    } else if (rainbowTrigger == 'on') { 
+      event.target.style.background = generateColor()
+    }
+  }
 
 // random color generator
 function generateColor(square) {
