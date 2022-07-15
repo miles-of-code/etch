@@ -32,10 +32,7 @@ redLabel.textContent = redValue.value;
 greenLabel.textContent = greenValue.value;
 blueLabel.textContent = blueValue.value;
 
-
 const rainbowButton = document.getElementById("buttonRainbow");
-
-
 
 main.appendChild(settings);
 main.appendChild(gridContainer);
