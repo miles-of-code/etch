@@ -14,13 +14,28 @@ settings.setAttribute('id', 'settings');
 const slideContainer = document.getElementById("slideContainer");
 const sizeOutput = document.getElementById("sizeLabel");
 sizeOutput.innerHTML = slideSize.value; // set grid to default size
+
 const redBackgroundLabel = document.getElementById("backgroundRedLabel");
 redBackgroundLabel.innerHTML = slideBackgroundRedColor.value;
 const greenBackgroundLabel = document.getElementById("backgroundGreenLabel");
 greenBackgroundLabel.innerHTML = slideBackgroundGreenColor.value;
 const blueBackgroundLabel = document.getElementById("backgroundBlueLabel");
 blueBackgroundLabel.innerHTML = slideBackgroundBlueColor.value;
+
+const redLabel = document.getElementById("redLabel");
+const redValue = document.getElementById('slideRedColor')
+const greenLabel = document.getElementById("greenLabel");
+const greenValue = document.getElementById('slideGreenColor')
+const blueLabel = document.getElementById("blueLabel");
+const blueValue = document.getElementById('slideBlueColor')
+redLabel.textContent = redValue.value;
+greenLabel.textContent = greenValue.value;
+blueLabel.textContent = blueValue.value;
+
+
 const rainbowButton = document.getElementById("buttonRainbow");
+
+
 
 main.appendChild(settings);
 main.appendChild(gridContainer);
@@ -102,16 +117,27 @@ rainbowButton.addEventListener('click', changeRainbow);
 gridContainer.addEventListener('mouseover', getDefaultColor); 
   function getDefaultColor(event) {
     let rainbowTrigger = triggerRainbow(); 
-    console.log(rainbowButton.textContent)
     if (rainbowTrigger == 'off') {
         valRed = document.getElementById("slideRedColor").value;
         valGreen = document.getElementById("slideGreenColor").value;
         valBlue = document.getElementById("slideBlueColor").value;
+
         event.target.style.background = `rgb(${valRed}, ${valGreen}, ${valBlue})`
     } else if (rainbowTrigger == 'on') { 
       event.target.style.background = generateColor()
     }
   }
+
+// RGB sliders
+redValue.addEventListener('input',function() {
+  redLabel.textContent = redValue.value;
+})
+greenValue.addEventListener('input',function() {
+  greenLabel.textContent = greenValue.value;
+})
+blueValue.addEventListener('input',function() {
+  blueLabel.textContent = blueValue.value;
+})
 
 // random color generator
 function generateColor(square) {
@@ -121,6 +147,7 @@ function generateColor(square) {
   let randomColor = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`
   return randomColor;
 }
+
 
  // at startup, spell ETCH
 const square1 = document.getElementById('square1')
@@ -176,3 +203,6 @@ async function greetSquares() {
   gridContainer.style.background="white";
 }
 greetSquares();
+
+
+
